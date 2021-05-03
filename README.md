@@ -2,7 +2,9 @@
 This is my attempt for the e-commerce assignment for hacktiv8
 
 [Deployed Customer App](https://mech-store-id.web.app/)
+
 [Deployed CMS / Admin App](https://mech-cms.web.app/)
+
 [Deployed Back End Server](https://mech-store.herokuapp.com/)
 
 ## FAQ
