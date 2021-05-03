@@ -1,0 +1,53 @@
+{
+  "name": "ecommerce-server",
+  "version": "1.0.0",
+  "description": "API server untuk e-commerce website",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node ./bin/http.js",
+    "dev": "NODE_ENV=development npx nodemon ./bin/http.js",
+    "test": "npm run test:user; npm run test:product",
+    "dev:db:create": "NODE_ENV=development npx sequelize db:create",
+    "dev:db:migrate": "NODE_ENV=development npx sequelize db:migrate",
+    "dev:db:migrate:undo:all": "NODE_ENV=development npx sequelize db:migrate:undo:all",
+    "dev:db:seed:all": "NODE_ENV=development npx sequelize db:seed:all",
+    "dev:sequelize:all": "npm run dev:db:create; npm run dev:db:migrate; npm run dev:db:seed:all",
+    "dev:sequelize:refresh": "npm run dev:db:migrate:undo:all; npm run dev:db:migrate; npm run dev:db:seed:all",
+    "test:db:create": "NODE_ENV=test npx sequelize db:create",
+    "test:db:migrate": "NODE_ENV=test npx sequelize db:migrate",
+    "test:db:migrate:undo:all": "NODE_ENV=test npx sequelize db:migrate:undo:all",
+    "test:db:seed:all": "NODE_ENV=test npx sequelize db:seed:all",
+    "test:command": "npm run test:db:migrate:undo:all; npm run test:db:migrate; npx jest --detectOpenHandles --forceExit --runInBand",
+    "test:user": "npm run test:command user",
+    "test:product": "npm run test:command product"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rickyhemawan/ecommerce-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rickyhemawan/ecommerce-server/issues"
+  },
+  "homepage": "https://github.com/rickyhemawan/ecommerce-server#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.5.1",
+    "sequelize": "^6.5.1"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7",
+    "sequelize-cli": "^6.2.0",
+    "supertest": "^6.1.3"
+  }
+}
